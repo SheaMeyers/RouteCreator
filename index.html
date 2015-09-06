@@ -10,8 +10,15 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="index.js"></script>   
     </head>
-    <body class="background">
-        <p class="text">Hello World!</p>
+    <body>
+        <div id="outter">
+            <p class="text" id="heading">Welcome to RouteCreator!</p>
+            <p class="text" id="message1">Enter locations below to find the 
+                quickest route that will stop at all of them</p>
+            <div id="googleMap"></div>
+        </div>
     </body>
 </html>
