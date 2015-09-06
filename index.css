@@ -7,4 +7,11 @@ and open the template in the editor.
     Created on : Sep 5, 2015, 5:31:42 PM
     Author     : Shea
 */
+.background{
+    background-color: #00CC00;
+        
+}
 
+.text{
+    color: white;
+}
