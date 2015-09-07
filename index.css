@@ -9,19 +9,31 @@ and open the template in the editor.
 */
 
 body, html{
-    margin: auto;
-    display: table;
-    min-height: 100%;
+    margin: 0;
     height: 100%;
-    background-color: lightgray;
+    overflow-y: hidden;
+    background: -webkit-linear-gradient(lightgrey, white);/* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(lightgrey, white);/* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(lightgrey, white);/* For Firefox 3.6 to 15 */
+    background: linear-gradient(lightgrey, white);/* Standard syntax */
 }
 
-#outter{
-        min-height: 100%;
-        height: 100%;
-        width: 900px;
-        background-color: #00CC00;
-        display: table-cell;
+#info{
+    margin: 0 auto;
+    height: 75px;
+    width: 900px;
+    background: blue;
+}
+
+#content{
+    margin: 0 auto 0 auto;
+    height: 100%;
+    width: 900px;
+    background: -webkit-linear-gradient(black, #00CC00);/* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(black, #00CC00);/* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(black, #00CC00);/* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, #00CC00);/* Standard syntax */
+    overflow: hidden;
 }
     
 .text{
@@ -30,54 +42,52 @@ body, html{
     font-family: georgia;
     color: white;
     text-align: center;
-    text-shadow: 2px 2px darkgray;
+    text-shadow: 2px 2px black;
 }
 
 .addressBox{
-    margin: auto;
-    margin-top: 30px;
+    margin: 0 auto;
     display: block;
-    width: 450px; 
+    margin-top: 30px;
+    width: 450px;
 }
 
 #routeButton{
-    margin: auto;
+    margin: 0 auto;
+    display: block;
     margin-top: 30px;
     width: 400px;
     color: white;
     background-color: blue;
     border-color: darkblue;
-    display: block;
 }
 
 #routeButton:focus{
     background-color: steelblue;
     border-color: blue;
+    clear: both;
 }
 
 #heading{
     font-size: 40px;
+    margin: 0;
 }
 
 #message1{
     font-size: 22px;
     margin-top: 10px;
     margin-bottom: 30px;
+    margin: 0;
 }
 
 #message2{
-    text-align: left;
+    position: absolute;
     text-shadow: none;
     font-size: 12px;
-    position: absolute;
-    bottom: 0;
+    bottom: 0px;
 }
 
 #googleMap{
-    width: 600px;
+    width: 900px;
     height: 400px;
-    display: block;
-    margin: auto;
 }
-
-
