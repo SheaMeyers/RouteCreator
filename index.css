@@ -13,6 +13,7 @@ body, html{
     display: table;
     min-height: 100%;
     height: 100%;
+    background-color: lightgray;
 }
 
 #outter{
@@ -21,13 +22,37 @@ body, html{
         width: 900px;
         background-color: #00CC00;
         display: table-cell;
-        vertical-align: middle;
 }
     
 .text{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: georgia;
     color: white;
     text-align: center;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: 2px 2px darkgray;
+}
+
+.addressBox{
+    margin: auto;
+    margin-top: 30px;
+    display: block;
+    width: 450px; 
+}
+
+#routeButton{
+    margin: auto;
+    margin-top: 30px;
+    width: 400px;
+    color: white;
+    background-color: blue;
+    border-color: darkblue;
+    display: block;
+}
+
+#routeButton:focus{
+    background-color: steelblue;
+    border-color: blue;
 }
 
 #heading{
@@ -36,14 +61,23 @@ body, html{
 
 #message1{
     font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#message2{
+    text-align: left;
+    text-shadow: none;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
 }
 
 #googleMap{
     width: 600px;
     height: 400px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 
