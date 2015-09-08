@@ -11,29 +11,22 @@ and open the template in the editor.
 body, html{
     margin: 0;
     height: 100%;
-    overflow-y: hidden;
-    background: -webkit-linear-gradient(lightgrey, white);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(lightgrey, white);/* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(lightgrey, white);/* For Firefox 3.6 to 15 */
-    background: linear-gradient(lightgrey, white);/* Standard syntax */
+    background: linear-gradient(lightgrey, white);
 }
 
 #info{
     margin: 0 auto;
-    height: 80px;
+    min-height: 75px;
+    height: 10%;
     width: 900px;
     background: blue;
 }
 
 #content{
     margin: 0 auto 0 auto;
-    height: 100%;
+    min-height: 90%;
     width: 900px;
-    background: -webkit-linear-gradient(black, #00CC00);/* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(black, #00CC00);/* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(black, #00CC00);/* For Firefox 3.6 to 15 */
-    background: linear-gradient(black, #00CC00);/* Standard syntax */
-    overflow: hidden;
+    background: linear-gradient(black, #00CC00);
 }
     
 .text{
