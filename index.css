@@ -7,7 +7,7 @@
 body, html{
     margin: 0;
     height: 100%;
-    background: linear-gradient(lightgrey, white);
+    background: linear-gradient(lightgrey, white) no-repeat;
 }
 
 #info{
