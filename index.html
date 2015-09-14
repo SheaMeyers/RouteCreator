@@ -11,7 +11,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="index.css">
         <script src="http://maps.googleapis.com/maps/api/js"></script>
-        <script src="loadGoogleMaps.js"></script>   
+        <script src="js/libs/jquery/jquery-1.11.3.js"></script>
+        <script src="js/libs/underscore.js/underscore.js"></script>
+        <script src="js/libs/backbone.js/backbone.js"></script>
+        <script src="js/loadGoogleMaps.js"></script>
+        <script src="js/addAddressBox.js"></script>
     </head>
     <body>
         <div id="info">
@@ -22,9 +26,9 @@ and open the template in the editor.
         <div id="content">
             <div id="googleMap"></div>
             <ul id="addressBoxList">
-                <li><input class="addressBox" type="text" placeholder="Start and End location"> </li>
-                <li><input class="addressBox" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
-                <li><input class="addressBox" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
+                <li><input class="addressBox" id="addressBox" type="text" placeholder="Start and End location"> </li>
+                <li><input class="addressBox" id="addressBox" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
+                <li><input class="addressBox" id="addressBox" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
             </ul>
             <button id="routeButton" type="button">Calculate your route!</button>
             <p class="text" id="message2">Built and designed by Shea Meyers</p>
