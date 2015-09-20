@@ -16,7 +16,6 @@ $(function() {
             }
             $("#valueHolder").text(clicks);
         },
-
     });
 
     new AddressView({el: 'body'});
