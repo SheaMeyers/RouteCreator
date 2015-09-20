@@ -56,11 +56,15 @@ body, html{
     border-color: darkblue;
 }
 
+#routeButton:hover{
+    background-color: navy;
+}
+
 #routeButton:focus{
     background-color: steelblue;
     border-color: blue;
-    clear: both;
 }
+
 
 #heading{
     font-size: 40px;
@@ -84,4 +88,8 @@ body, html{
 #googleMap{
     width: 900px;
     height: 400px;
+}
+
+#valueHolder{
+    font-size: 0;
 }

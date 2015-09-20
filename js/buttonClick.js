@@ -4,22 +4,18 @@
  * and open the template in the editor.
  */
 $(function() {
-    
-    var address1;
-    var address2;
-    var address3;
+        
+    var addresses = [];
      
-    Address = Backbone.Model.extend({
+    var AddressModel = Backbone.Model.extend({
         defaults: {
-            address: "Not specified",
+            address: '',
         },
-        initialize: function(){
-            console.log("address made");
-        }
+        initialize: function(){}
     });
 
-    Addresses = Backbone.Collection.extend({
-        model: Address
+    var AddressCollection = Backbone.Collection.extend({
+        model: AddressModel
     });
 
      AddressView = Backbone.View.extend({
@@ -29,16 +25,19 @@ $(function() {
         },
 
         addAddress: function() {
-            //console.log("Click recieved!!");
-            address1 = $('#addressBox1').val();
-            address2 = $('#addressBox2').val();
-            address3 = $('#addressBox3').val();
+            var clicks = $("#valueHolder").text();
+            
+            for(var i=1; i<=clicks; i++)
+            {
+                var val = '#addressBox' + i;
+                var currentAddress = $(val).val();
+                var currentAddressModel = new AddressModel({address: currentAddress});
+                addresses.push(currentAddressModel);
+            }
+            
+            var allAddresses = new AddressCollection(addresses);
         },
-
     });
 
-    new AddressView({el: 'body'});
-
-    var allAddresses = new Addresses([ address1, address2, address3]);
-    console.log( allAddresses.models );
+    new AddressView({el: 'body'});    
 });
