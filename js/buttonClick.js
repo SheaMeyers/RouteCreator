@@ -27,6 +27,8 @@ $(function() {
         addAddress: function() {
             var clicks = $("#valueHolder").text();
             
+            if(clicks < 3){clicks = 3};
+            
             for(var i=1; i<=clicks; i++)
             {
                 var val = '#addressBox' + i;
@@ -36,6 +38,13 @@ $(function() {
             }
             
             var allAddresses = new AddressCollection(addresses);
+              
+              //Below loops through all models in the collection and gets 
+              //   it's address
+//            allAddresses.each(function(currentAddressModel) {
+//               var getval = currentAddressModel.get('address');
+//               console.log('getval ' + getval);
+//            });
         },
     });
 
