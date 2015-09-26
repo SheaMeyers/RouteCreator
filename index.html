@@ -6,7 +6,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="index.css">
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw&callback=initMap">
+        </script>
         <script src="js/libs/jquery/jquery-1.11.3.js"></script>
         <script src="js/libs/underscore.js/underscore.js"></script>
         <script src="js/libs/backbone.js/backbone.js"></script>
@@ -21,7 +23,7 @@
                 quickest route that will stop at all of them</p>
         </div>
         <div id="content">
-            <div id="googleMap"></div>
+            <div id="GoogleMap"></div>
             <ul id="addressBoxList">
                 <li><input class="addressBox" id="addressBox1" type="text" placeholder="Start and End location"> </li>
                 <li><input class="addressBox" id="addressBox2" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
