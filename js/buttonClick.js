@@ -75,6 +75,13 @@ $(function() {
                                   var from = origins[i];
                                   var to = destinations[j];
 
+                                  //Use parseInt(distance.substring(0, distance.length-3))
+                                  //   to get distance into an integer
+                                  //Just need distance.substring(0, distance.length-3)
+                                  
+                                  //Example from Google Directions API
+                                  //https://maps.googleapis.com/maps/api/directions/json?origin=48+Pirrama+Rd,+Pyrmont,+NSW,+Australia&destination=122+Flinders+St,+Darlinghurst,+NSW,+Australia&sensor=false&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw
+
                                   console.log('distance ' + distance + 
                                                 ' duration ' + duration +
                                                 ' from ' + from +
