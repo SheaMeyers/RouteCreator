@@ -46,7 +46,29 @@ $(function() {
                toGoTo.push(getval)
             });
 
-            this.getDistances();
+            if(true) {
+                //Example from Google Directions API
+                //http://maps.googleapis.com/maps/api/directions/json?origin=Adelaide,SA&destination=Adelaide,SA&waypoints=optimize:true|Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw
+                this.googleTravellingSalesman();
+            }
+            else {
+                this.getDistances();
+            }
+        },
+        
+        googleTravellingSalesman: function(){
+            var urlBeginning = "https://maps.googleapis.com/maps/api/directions/json?origin=";
+            var urlEnding = "&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw";
+            var urlRoutes = toGoTo[0].replace(/ /g,'') + "&destination=" +
+                            toGoTo[0].replace(/ /g,'') + "&waypoints=optimize:true";
+            
+            for(var i=1; i<toGoTo.length; i++){
+                urlRoutes += "|" + toGoTo[i].replace(/ /g,'');
+            }
+            
+            var urlComplete = urlBeginning + urlRoutes + urlEnding;
+            
+            console.log("urlComplete: " + urlComplete);
         },
         
         getDistances: function(){
@@ -79,9 +101,6 @@ $(function() {
                                   //   to get distance into an integer
                                   //Just need distance.substring(0, distance.length-3)
                                   
-                                  //Example from Google Directions API
-                                  //https://maps.googleapis.com/maps/api/directions/json?origin=48+Pirrama+Rd,+Pyrmont,+NSW,+Australia&destination=122+Flinders+St,+Darlinghurst,+NSW,+Australia&sensor=false&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw
-
                                   console.log('distance ' + distance + 
                                                 ' duration ' + duration +
                                                 ' from ' + from +
