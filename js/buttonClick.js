@@ -56,6 +56,20 @@ $(function() {
             }
         },
         
+        makeAjaxCall: function(url, completeCallback) {
+            $.ajax({
+                url: url,
+                crossDoman: true,
+                async: false,
+                type: "GET",
+                dataType: "json",
+                complete: completeCallback,
+                success: function(data){
+                    console.log("data " + data);
+                }
+            });
+        },
+        
         googleTravellingSalesman: function(){
             var urlBeginning = "https://maps.googleapis.com/maps/api/directions/json?origin=";
             var urlEnding = "&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw";
@@ -67,6 +81,23 @@ $(function() {
             }
             
             var urlComplete = urlBeginning + urlRoutes + urlEnding;
+            
+            this.makeAjaxCall(urlComplete, function (xhr, status){
+               if (typeof xhr.status == "number" &&
+                ((xhr.status >= 400 && xhr.status < 600) ||
+                    (xhr.status >= 200 && xhr.status < 300)
+                    )) {
+                    console.log("status " + xhr.status);
+                    var value = xhr.responseText;
+                    try {
+                        //value = JSON.stringify(JSON.parse(value), null, 3);
+                        console.log("value " + value);
+                    }
+                    catch (e) {
+                        console.log("error " + e);
+                    }
+                }
+            });
             
             console.log("urlComplete: " + urlComplete);
         },
