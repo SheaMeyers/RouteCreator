@@ -63,10 +63,11 @@ $(function() {
                 async: false,
                 type: "GET",
                 dataType: "json",
-                complete: completeCallback,
-                success: function(data){
-                    console.log("data " + data);
-                }
+                complete: completeCallback
+//                success: function(data){
+//                    //console.log("\n\ndata " + data + "\n\n");
+//                    //console.log("type of " + typeof(data));
+//                }
             });
         },
         
@@ -91,10 +92,26 @@ $(function() {
                     var value = xhr.responseText;
                     try {
                         //value = JSON.stringify(JSON.parse(value), null, 3);
-                        console.log("value " + value);
+                        //console.log("\n\nvalue " + value + "\n\n");
+                        //console.log("typeof " + typeof(value));
+                        var locationsArray = [];
+                        value = value.replace(/{|}|},|:/g,' ');
+                        value = value.replace(/"/g,' ')
+                        valueArray = value.split("\n");
+                        for(var i=0; i<valueArray.length; i++){
+                            //console.log(valueArray[i]);
+                            if(valueArray[i].indexOf('start_address') > -1){
+                                locationsArray.push(valueArray[i].replace(/ /g,''));
+                            }
+                        }
+                        
+                        for(var i=0; i<locationsArray.length; i++){
+                            locationsArray[i] = locationsArray[i].replace('start_address','');
+                            console.log(locationsArray[i]);
+                        }
                     }
                     catch (e) {
-                        console.log("error " + e);
+                        console.log("\n\nerror " + e + "\n\n");
                     }
                 }
             });
