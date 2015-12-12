@@ -46,14 +46,12 @@ $(function() {
                toGoTo.push(getval)
             });
 
-            console.log('Before if else');
             if(false) {
                 //Example from Google Directions API
                 //http://maps.googleapis.com/maps/api/directions/json?origin=Adelaide,SA&destination=Adelaide,SA&waypoints=optimize:true|Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw
                 this.googleTravellingSalesman();
             }
             else {
-                console.log("In else");
                 this.getDistances();
             }
         },
@@ -123,7 +121,6 @@ $(function() {
         },
         
         getDistances: function(){
-            console.log("In get distances");
              var service = new google.maps.DistanceMatrixService();
              var vertex = [];
              var edge = [];
@@ -156,14 +153,13 @@ $(function() {
                                     //   to get distance into an integer
                                     //Just need distance.substring(0, distance.length-3)
 
-                                    console.log('distance ' + distance + 
-                                                  ' duration ' + duration +
-                                                  ' from ' + from +
-                                                  ' to ' + to);
+//                                    console.log('distance ' + distance + 
+//                                                  ' duration ' + duration +
+//                                                  ' from ' + from +
+//                                                  ' to ' + to);
                                     edge.push([from,to,parseInt(distance)]);
                                     increments = ++increments;
-                                    console.log(increments);
-                                    if(vertex.length < toGoTo.length){
+                                    if(vertex.indexOf(from) < 0){
                                         vertex.push(from);
                                     }
                                 }
@@ -176,9 +172,14 @@ $(function() {
                     
             
             setTimeout(function(){ 
+                var graph = {
+                    vertex: vertex,
+                    edge: edge
+                };
                 console.log(vertex);
                 console.log(edge);
-            }, 3000);
+                console.log(dijkstra(vertex[0], graph));
+            }, 2000);
                 
             
             
