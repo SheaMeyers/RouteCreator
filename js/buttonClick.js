@@ -46,12 +46,14 @@ $(function() {
                toGoTo.push(getval)
             });
 
-            if(true) {
+            console.log('Before if else');
+            if(false) {
                 //Example from Google Directions API
                 //http://maps.googleapis.com/maps/api/directions/json?origin=Adelaide,SA&destination=Adelaide,SA&waypoints=optimize:true|Barossa+Valley,SA|Clare,SA|Connawarra,SA|McLaren+Vale,SA&key=AIzaSyDOKNVX7py5AypCbvqQTEkcPPfkXHFkOuw
                 this.googleTravellingSalesman();
             }
             else {
+                console.log("In else");
                 this.getDistances();
             }
         },
@@ -98,13 +100,14 @@ $(function() {
                         value = value.replace(/{|}|},|:/g,' ');
                         value = value.replace(/"/g,' ')
                         valueArray = value.split("\n");
+                        //This is adding all the cities to the array, in proper order
                         for(var i=0; i<valueArray.length; i++){
                             //console.log(valueArray[i]);
                             if(valueArray[i].indexOf('start_address') > -1){
                                 locationsArray.push(valueArray[i].replace(/ /g,''));
                             }
                         }
-                        
+                        //A simple printout of the cities to go to, in their order
                         for(var i=0; i<locationsArray.length; i++){
                             locationsArray[i] = locationsArray[i].replace('start_address','');
                             console.log(locationsArray[i]);
@@ -120,7 +123,11 @@ $(function() {
         },
         
         getDistances: function(){
+            console.log("In get distances");
              var service = new google.maps.DistanceMatrixService();
+             var vertex = [];
+             var edge = [];
+             var increments = 0;
             
             for(var i=0; i<toGoTo.length; i++){
                 for(var j=0; j<toGoTo.length; j++){
@@ -139,27 +146,42 @@ $(function() {
                               for (var i = 0; i < origins.length; i++) {
                                 var results = response.rows[i].elements;
                                 for (var j = 0; j < results.length; j++) {
-                                  var element = results[j];
-                                  var distance = element.distance.text;
-                                  var duration = element.duration.text;
-                                  var from = origins[i];
-                                  var to = destinations[j];
+                                    var element = results[j];
+                                    var distance = element.distance.text;
+                                    var duration = element.duration.text;
+                                    var from = origins[i];
+                                    var to = destinations[j];
 
-                                  //Use parseInt(distance.substring(0, distance.length-3))
-                                  //   to get distance into an integer
-                                  //Just need distance.substring(0, distance.length-3)
-                                  
-                                  console.log('distance ' + distance + 
-                                                ' duration ' + duration +
-                                                ' from ' + from +
-                                                ' to ' + to);
+                                    //Use parseInt(distance.substring(0, distance.length-3))
+                                    //   to get distance into an integer
+                                    //Just need distance.substring(0, distance.length-3)
+
+                                    console.log('distance ' + distance + 
+                                                  ' duration ' + duration +
+                                                  ' from ' + from +
+                                                  ' to ' + to);
+                                    edge.push([from,to,parseInt(distance)]);
+                                    increments = ++increments;
+                                    console.log(increments);
+                                    if(vertex.length < toGoTo.length){
+                                        vertex.push(from);
+                                    }
                                 }
-                              }
+                              }   
                             }
-                          });
+                        });
                     }
                 }
             }
+                    
+            
+            setTimeout(function(){ 
+                console.log(vertex);
+                console.log(edge);
+            }, 3000);
+                
+            
+            
         },
         
         

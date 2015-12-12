@@ -24,15 +24,29 @@ graph2 = {
 };
 
 graph3 = {
-	vertex: ["2","1","3"],
+	vertex: ["1","2","3"],
+        //vertex: ["1","2","3"],
 	edge: [,
 	/* vertex1, vertex2, weight */
 		["1", "2", 258],
 		["2", "1", 259],
 		["3", "2", 71.7],
+                ["2", "3", 71.7],
 		["3", "1", 226],
 		["1", "3", 226],
 		["2", "3", 71.0]
+	]
+};
+
+graph4 = {
+	vertex: ["A","B","C"],
+        //vertex: ["1","2","3"],
+	edge: [,
+	/* vertex1, vertex2, weight */
+		["A", "B", 258],
+                ["B", "A", 258],
+                ["B", "C", 259],
+                ["C", "B", 259],
 	]
 };
 
@@ -77,7 +91,7 @@ function dijkstra(start, graph) {
 	return distance;
 };
 
-console.log("\n\n DIJKSTRAS");
-console.log(dijkstra("2", graph3));
-console.log("\n\n DIJKSTRAS");
+//console.log("\n\n DIJKSTRAS");
+//console.log(dijkstra("A", graph4));
+//console.log("\n\n DIJKSTRAS");
 
