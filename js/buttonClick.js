@@ -172,13 +172,35 @@ $(function() {
                     
             
             setTimeout(function(){ 
-                var graph = {
-                    vertex: vertex,
-                    edge: edge
-                };
+                var graph = {};
+                var dijkstra_result;
+                var shortest = Number.POSITIVE_INFINITY;
+                var shortest_place = "";
+                var places = [];
                 console.log(vertex);
                 console.log(edge);
-                console.log(dijkstra(vertex[0], graph));
+                //Find shortest distance
+                //That is new vertex[0]
+                while(vertex.length > 1){
+                    places.push(vertex[0]);
+                    graph = {
+                        vertex: vertex,
+                        edge: edge
+                    };
+                    dijkstra_result = dijkstra(vertex[0], graph);
+                    for(var key in dijkstra_result){
+                        if(dijkstra_result.hasOwnProperty(key)){
+                            if(dijkstra_result[key] < shortest){
+                                shortest_place = key;
+                            }
+                        };
+                    }
+                    vertex.splice(vertex.indexOf(shortest_place), 1);
+                    vertex[0] = shortest_place;
+                    shortest = Number.POSITIVE_INFINITY;
+                }
+                places.push(vertex[0]);
+                console.log(places);
             }, 2000);
                 
             
