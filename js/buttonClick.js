@@ -28,6 +28,7 @@
 
         render: function(){
             console.log('test render');
+            $('#result').text('calculating...');
             this.addAddress();
         },
 

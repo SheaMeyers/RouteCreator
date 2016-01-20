@@ -41,26 +41,31 @@ body, html{
     width: 450px;
 }
 
-#addressBoxList{
-    list-style-type: none;
-    padding-left: 0;
-}
-
-#routeButton{
+.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    padding: 5px;
     margin: 0 auto;
     display: block;
     margin-top: 30px;
-    width: 450px;
+    width: 85px;
     color: white;
     background-color: blue;
     border-color: darkblue;
 }
 
-#routeButton:hover{
+#addressBoxList{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.button:hover{
     background-color: navy;
 }
 
-#routeButton:focus{
+.button:focus{
     background-color: steelblue;
     border-color: blue;
 }
