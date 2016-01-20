@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-        
+       
     var addresses = [];
     var toGoTo = [];
     var allAddresses;
@@ -28,6 +28,7 @@
 
         render: function(){
             console.log('test render');
+            this.addAddress();
         },
 
         addAddress: function() {
@@ -56,7 +57,7 @@
                 this.googleTravellingSalesman();
             }
             else {
-                this.getDistances();
+                return this.getDistances();
             }
         },
         
@@ -205,6 +206,8 @@
                 }
                 places.push(vertex[0]);
                 console.log(places);
+                
+                $('#result').text(places);
             }, 2000);
                 
             
