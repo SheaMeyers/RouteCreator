@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(function() {
+
         
     var addresses = [];
     var toGoTo = [];
@@ -24,6 +24,10 @@ $(function() {
 
         events: {
             'click #routeButton':  'addAddress',
+        },
+
+        render: function(){
+            console.log('test render');
         },
 
         addAddress: function() {
@@ -211,4 +215,4 @@ $(function() {
     });
 
     new AddressView({el: 'body'});    
-});
+

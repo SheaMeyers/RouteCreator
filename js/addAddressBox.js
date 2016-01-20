@@ -3,7 +3,7 @@ var clicks = 0;
 
 $(function() {
     
-    AddressView = Backbone.View.extend({
+    AddressBoxView = Backbone.View.extend({
 
         events: {
             'click .addressBox':  'render',
@@ -18,5 +18,5 @@ $(function() {
         },
     });
 
-    new AddressView({el: 'body'});
+    new AddressBoxView({el: 'body'});
 });

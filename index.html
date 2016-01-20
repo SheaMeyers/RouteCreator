@@ -32,21 +32,46 @@
                 <li><input class="addressBox" id="addressBox3" type="text" placeholder="eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5"> </li>
             </ul>
             <button id="routeButton" type="button">Calculate your route!</button>
+            <a href="#/result" class="">Load Results</a>
+            <p class="text" id="result"></p>
             <p class="text" id="message2">Built and designed by Shea Meyers</p>
             <p id="valueHolder">This is used as a placeholder value to pass
                 the number of clicks between javascript files</p>
         </div>
         
+        <script type="text/html">
+            
+        </script>
+        
         <script>
+            
+            var TestList = Backbone.View.extend({
+                el: '.heading',
+                render: function() {
+                    console.log("In render");
+                    this.$el.html("Test routing");
+                }
+            })
+            
             var Router = Backbone.Router.extend({
                routes: {
-                   '': 'home'
+                   '': 'home',
+                   'result': 'showResult'
                } 
             });
+            
+            var testList = new TestList();
+            var addressView = new AddressView();
+            
             var router = new Router();
             router.on('route:home', function() {
                 console.log("Loaded the main/home page");
+                testList.render();
             });
+            
+            router.on('route:showResult', function() {
+                addressView.render();
+            })
             
             Backbone.history.start();
         </script>
