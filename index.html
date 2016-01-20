@@ -13,6 +13,7 @@
         <script src="js/libs/underscore.js/underscore.js"></script>
         <script src="js/libs/backbone.js/backbone.js"></script>
         <script src="js/loadGoogleMaps.js"></script>
+        <!--<script src="js/router.js"></script>-->
         <script src="js/dijkstra.js"></script>
         <script src="js/addAddressBox.js"></script>
         <script src="js/buttonClick.js"></script>
@@ -35,5 +36,20 @@
             <p id="valueHolder">This is used as a placeholder value to pass
                 the number of clicks between javascript files</p>
         </div>
+        
+        <script>
+            var Router = Backbone.Router.extend({
+               routes: {
+                   '': 'home'
+               } 
+            });
+            var router = new Router();
+            router.on('route:home', function() {
+                console.log("Loaded the main/home page");
+            });
+            
+            Backbone.history.start();
+        </script>
+            
     </body>
 </html>
