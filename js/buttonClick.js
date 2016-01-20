@@ -207,8 +207,15 @@
                 places.push(vertex[0]);
                 console.log(places);
                 
-                $('#result').text(places);
-            }, 2000);
+                //$('#result').text(places);
+                var resultString = "";
+                
+                for(var i=1; i<places.length+1; i++){
+                   resultString += i + '. ' + places[i-1] + '<br>';
+                }
+                
+                $('#result').html(resultString);
+            }, 3000);
                 
             
             

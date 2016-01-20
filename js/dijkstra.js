@@ -87,6 +87,9 @@ function dijkstra(start, graph) {
 		});
 		// Mark visited
 		delete vertices[u];
+                if(typeof(u) !== "string"){
+                    delete vertices[Object.keys(vertices)[0]]
+                }
 	}
 	return distance;
 };
