@@ -44,14 +44,6 @@
         
         <script>
             
-            var TestList = Backbone.View.extend({
-                el: '.heading',
-                render: function() {
-                    console.log("In render");
-                    this.$el.html("Test routing");
-                }
-            })
-            
             var Router = Backbone.Router.extend({
                routes: {
                    '': 'home',
@@ -59,14 +51,9 @@
                } 
             });
             
-            var testList = new TestList();
             var addressView = new AddressView();
             
             var router = new Router();
-            router.on('route:home', function() {
-                console.log("Loaded the main/home page");
-                testList.render();
-            });
             
             router.on('route:showResult', function() {
                 addressView.render();

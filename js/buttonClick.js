@@ -27,7 +27,6 @@
         },
 
         render: function(){
-            console.log('test render');
             $('#result').text('calculating...');
             this.addAddress();
         },
@@ -127,6 +126,7 @@
         },
         
         getDistances: function(){
+            var self = this;
              var service = new google.maps.DistanceMatrixService();
              var vertex = [];
              var edge = [];
@@ -169,60 +169,54 @@
                                         vertex.push(from);
                                     }
                                 }
-                              }   
+                              }
+                              if(toGoTo.length*2 === increments){
+                                  self.calculateRoute(vertex, edge);
+                              }
                             }
                         });
                     }
                 }
             }
-                    
-            
-            setTimeout(function(){ 
-                var graph = {};
-                var dijkstra_result;
-                var shortest = Number.POSITIVE_INFINITY;
-                var shortest_place = "";
-                var places = [];
-                console.log(vertex);
-                console.log(edge);
-                //Find shortest distance
-                //That is new vertex[0]
-                while(vertex.length > 1){
-                    places.push(vertex[0]);
-                    graph = {
-                        vertex: vertex,
-                        edge: edge
-                    };
-                    dijkstra_result = dijkstra(vertex[0], graph);
-                    for(var key in dijkstra_result){
-                        if(dijkstra_result.hasOwnProperty(key)){
-                            if(dijkstra_result[key] < shortest){
-                                shortest_place = key;
-                            }
-                        };
-                    }
-                    vertex.splice(vertex.indexOf(shortest_place), 1);
-                    vertex[0] = shortest_place;
-                    shortest = Number.POSITIVE_INFINITY;
-                }
-                places.push(vertex[0]);
-                console.log(places);
-                
-                //$('#result').text(places);
-                var resultString = "";
-                
-                for(var i=1; i<places.length+1; i++){
-                   resultString += i + '. ' + places[i-1] + '<br>';
-                }
-                
-                $('#result').html(resultString);
-            }, 3000);
-                
-            
-            
         },
         
-        
+        calculateRoute: function(vertex, edge) {
+            var graph = {};
+            var dijkstra_result;
+            var shortest = Number.POSITIVE_INFINITY;
+            var shortest_place = "";
+            var places = [];
+            //Find shortest distance
+            //That is new vertex[0]
+            while(vertex.length > 1){
+                places.push(vertex[0]);
+                graph = {
+                    vertex: vertex,
+                    edge: edge
+                };
+                dijkstra_result = dijkstra(vertex[0], graph);
+                for(var key in dijkstra_result){
+                    if(dijkstra_result.hasOwnProperty(key)){
+                        if(dijkstra_result[key] < shortest){
+                            shortest_place = key;
+                        }
+                    };
+                }
+                vertex.splice(vertex.indexOf(shortest_place), 1);
+                vertex[0] = shortest_place;
+                shortest = Number.POSITIVE_INFINITY;
+            }
+            places.push(vertex[0]);
+
+            //$('#result').text(places);
+            var resultString = "";
+
+            for(var i=1; i<places.length+1; i++){
+               resultString += i + '. ' + places[i-1] + '<br>';
+            }
+
+            $('#result').html(resultString);
+        }
     });
 
     new AddressView({el: 'body'});    
