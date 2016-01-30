@@ -12,7 +12,7 @@ $(function() {
         render: function() {
             clicks++;
             if(clicks >= 3){
-                $("#addressBoxList").append("<li><input class=\"addressBox\" id=\"addressBox" + clicks + "\" type=\"text\" placeholder=\"eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5\"> </li>");
+                $("#addressBoxList").append("<li><input class=\"addressBox\" id=\"addressBox" + (clicks+1) + "\" type=\"text\" placeholder=\"eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5\"> </li>");
             }
             $("#valueHolder").text(clicks);
         },

@@ -170,9 +170,10 @@
                                     }
                                 }
                               }
-                              if(toGoTo.length*2 === increments){
+                              if(toGoTo.length*(toGoTo.length-1) === increments){
                                   self.calculateRoute(vertex, edge);
                               }
+                                
                             }
                         });
                     }
