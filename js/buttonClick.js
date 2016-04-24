@@ -208,8 +208,10 @@
                 shortest = Number.POSITIVE_INFINITY;
             }
             places.push(vertex[0]);
-
-            //$('#result').text(places);
+            //Move the first element of the array, your starting position
+            //   to the end of the array, since it'll be your end location
+            places.push(places.shift());
+            
             var resultString = "";
 
             for(var i=1; i<places.length+1; i++){
