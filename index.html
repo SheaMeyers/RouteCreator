@@ -13,9 +13,7 @@
         <script src="js/libs/underscore.js/underscore.js"></script>
         <script src="js/libs/backbone.js/backbone.js"></script>
         <script src="js/loadGoogleMaps.js"></script>
-        <!--<script src="js/router.js"></script>-->
         <script src="js/dijkstra.js"></script>
-        <script src="js/addAddressBox.js"></script>
         <script src="js/buttonClick.js"></script>
     </head>
     <body>
@@ -34,33 +32,9 @@
             <a href="#/result" class="button">Load Results</a>
             <p class="text" id="result"></p>
             <p class="text" id="message2">Built and designed by Shea Meyers</p>
-            <p id="valueHolder">This is used as a placeholder value to pass
-                the number of clicks between javascript files</p>
         </div>
         
-        <script type="text/html">
-            
-        </script>
-        
-        <script>
-            
-            var Router = Backbone.Router.extend({
-               routes: {
-                   '': 'home',
-                   'result': 'showResult'
-               } 
-            });
-            
-            var addressView = new AddressView();
-            
-            var router = new Router();
-            
-            router.on('route:showResult', function() {
-                addressView.render();
-            })
-            
-            Backbone.history.start();
-        </script>
+        <script src="js/router.js"></script>
             
     </body>
 </html>

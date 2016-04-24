@@ -1,6 +1,26 @@
 var addresses = [];
 var toGoTo = [];
 var allAddresses;
+var clicks = 0;
+
+$(function() {
+    
+    AddressBoxView = Backbone.View.extend({
+
+        events: {
+            'click .addressBox':  'render',
+        },
+
+        render: function() {
+            clicks++;
+            if(clicks >= 3){
+                $("#addressBoxList").append("<li><input class=\"addressBox\" id=\"addressBox" + (clicks+1) + "\" type=\"text\" placeholder=\"eg. City Of Saskatoon 222 3 Ave N Saskatoon, SK S7K 0J5\"> </li>");
+            }
+        },
+    });
+
+    new AddressBoxView({el: 'body'});
+});
 
 var AddressModel = Backbone.Model.extend({
     defaults: {
@@ -25,7 +45,6 @@ var AddressView = Backbone.View.extend({
     },
 
     addAddress: function() {
-        var clicks = $("#valueHolder").text();
 
         if(clicks < 3){clicks = 3};
 
